@@ -45,10 +45,10 @@ Remove-Item .\Tools -Force -Recurse -ErrorAction Ignore
 md .\Tools
 
 # Download Nuget Installer
-$sourceNugetExe = "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
-$targetNugetExe = ".\nuget.exe"
-Invoke-WebRequest $sourceNugetExe -OutFile $targetNugetExe
-Set-Alias nuget $targetNugetExe -Scope Global -Verbose
+# $sourceNugetExe = "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
+# $targetNugetExe = ".\nuget.exe"
+# Invoke-WebRequest $sourceNugetExe -OutFile $targetNugetExe
+# Set-Alias nuget $targetNugetExe -Scope Global -Verbose
 
 # Download Nuget Packages
 Download-NugetPackage -packageName 'Microsoft.CrmSdk.CoreTools' -version '9.1.0.49' -folderName 'CoreTools' -packagePath 'content\bin\coretools'

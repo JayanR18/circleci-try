@@ -5,7 +5,15 @@ jobs:
       - image: circleci/node:7.10
     working_directory: ~/repo
     steps:
-      - run: echo build step
-      - run: npm install
+      - checkout
 
-      - run: npm test
+      - restore_cache: # special step to restore the dependency cache 
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+
+      - run:
+          command: npm test    

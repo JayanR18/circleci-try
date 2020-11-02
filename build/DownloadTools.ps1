@@ -12,7 +12,7 @@ function Download-NugetPackage
 
     Write-Host Saving "$packageName $version to $folderName" -ForegroundColor Gree
 
-    ./nuget install $packageName -O .\Tools -Version $version
+    nuget install $packageName -O .\Tools -Version $version
     md .\Tools\$folderName
     $prtFolder = Get-ChildItem ./Tools | Where-Object {$_.Name -match "$packageName."}
     move .\Tools\$prtFolder\$packagePath\*.* .\Tools\$folderName

@@ -9,4 +9,8 @@ jobs:
     steps:
       - checkout
       - run: dotnet tool install --global PowerShell
-      - run: pwsh build/DownloadTools.ps1  
+      - run: 
+          shell: powershell.exe
+          command: |
+            $ProgressPreference = "SilentlyContinue"
+            pwsh build/DownloadTools.ps1  

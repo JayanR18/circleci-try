@@ -67,4 +67,4 @@ Download-PSModule -moduleName 'Microsoft.Xrm.OnlineManagementAPI' -version '1.2.
 ##
 ##Remove NuGet.exe
 ##
-Remove-Item nuget.exe
+#Remove-Item nuget.exe

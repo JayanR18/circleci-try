@@ -1,19 +1,23 @@
-version: 2.1
-
-orbs:
-  win: circleci/windows@2.2.0
-
+version: 2
 jobs:
   build:
-    executor: win/default
+    docker:
+      - image: circleci/node:7.10
+
+    working_directory: ~/repo
+
     steps:
-      - checkout
-      - run: 
-          name: Install dotnet tool
-          command: dotnet tool install --global PowerShell
-      - run: 
-          name: Install Power apps tools
-          shell: powershell.exe
-          command: |
-            $ProgressPreference = "SilentlyContinue"
-            pwsh build/DownloadTools.ps1  
+     - run: echo build step
+
+  test:
+    docker:
+      - image: circleci/node:7.10
+
+    working_directory: ~/repo
+
+    steps:
+      - run: echo test step
+
+
+
+

@@ -8,8 +8,11 @@ jobs:
     executor: win/default
     steps:
       - checkout
-      - run: dotnet tool install --global PowerShell
       - run: 
+          name: Install dotnet tool
+          command: dotnet tool install --global PowerShell
+      - run: 
+          name: Install Power apps tools
           shell: powershell.exe
           command: |
             $ProgressPreference = "SilentlyContinue"

@@ -7,7 +7,7 @@ jobs:
     steps:
       - run: echo build step
 
-  test:
+  test-me:
     docker:
       - image: circleci/node:7.10
     working_directory: ~/repo
@@ -23,10 +23,10 @@ jobs:
 
 workflows:
   version: 2
-  build-and-test:
+  build-and-test-me:
     jobs:
       - build
-      - test:
+      - test-me:
           requires:
             - build
      

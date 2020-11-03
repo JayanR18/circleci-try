@@ -6,6 +6,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - run: echo build step
+      - run: exit 1
 
   test-me:
     docker:
@@ -13,6 +14,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - run: echo test step
+      
 
   deploy:
     docker:

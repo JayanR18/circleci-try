@@ -6,7 +6,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - run: echo build step
-      - run: exit 1
+   
 
   test-me:
     docker:
@@ -16,7 +16,7 @@ jobs:
       - run: echo test step
       
 
-  deploy:
+  deploy-clone:
     docker:
       - image: circleci/node:7.10
     working_directory: ~/repo
@@ -31,4 +31,8 @@ workflows:
       - test-me:
           requires:
             - build
+      - deploy-clone:
+          requires:
+            - test-me
+
      

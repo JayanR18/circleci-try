@@ -8,6 +8,7 @@ jobs:
 
     steps:
      - run: echo build step
+     - run: exit 1
 
   test:
     docker:
@@ -17,6 +18,16 @@ jobs:
 
     steps:
       - run: echo test step
+
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build
+      - test:
+        requires:
+          - build
 
 
 

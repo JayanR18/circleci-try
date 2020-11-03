@@ -15,7 +15,7 @@ function Download-NugetPackage
     nuget install $packageName -O .\Tools -Version $version
     md .\Tools\$folderName
 
-    ls -la
+    ls
     $prtFolder = Get-ChildItem ./Tools | Where-Object {$_.Name -match "$packageName."}
     move $prtFolder\$packagePath\*.* .\Tools\$folderName
     Remove-Item .\Tools\$prtFolder -Force -Recurse

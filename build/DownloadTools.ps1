@@ -18,7 +18,7 @@ function Download-NugetPackage
     ls
     $prtFolder = Get-ChildItem ./Tools | Where-Object {$_.Name -match "$packageName."}
     move $prtFolder\$packagePath\*.* .\Tools\$folderName
-    Remove-Item .\Tools\$prtFolder -Force -Recurse
+    Remove-Item $prtFolder -Force -Recurse
 }
 
 # Download PowerShell Module
